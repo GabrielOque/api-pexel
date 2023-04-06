@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/api-pexel/static/css/main.7860bcb1.css",
+    "main.js": "/api-pexel/static/js/main.2c98585b.js",
+    "index.html": "/api-pexel/index.html",
+    "main.7860bcb1.css.map": "/api-pexel/static/css/main.7860bcb1.css.map",
+    "main.2c98585b.js.map": "/api-pexel/static/js/main.2c98585b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7860bcb1.css",
+    "static/js/main.2c98585b.js"
+  ]
+}
