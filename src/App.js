@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
 
-function App() {
+import Photos from "./components/Photos";
+import Navbar from "./components/Navbar";
+import Pagination from "./components/Pagination";
+
+const App = () => {
+  const initialUrl = "https://api.pexels.com/v1/curated?page=1&per_page=40";
+  const [datos, setDatos] = useState([]);
+  const [prev, setPrev] = useState();
+  const [next, setNext] = useState();
+
+  const fetchPictures = (urls) => {
+    fetch(urls, {
+      headers: {
+        Authorization:
+          "sNDO5bErXmqoZ8TB5adJy756hH2NOdUBE76EtvjN91adNF2ZwxC4nEMX",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setDatos(data.photos);
+        setPrev(data.prev_page);
+        setNext(data.next_page);
+      });
+  };
+
+  const onPrev = () => {
+    fetchPictures(prev);
+  };
+
+  const onNext = () => {
+    fetchPictures(next);
+  };
+
+  useEffect(() => {
+    fetchPictures(initialUrl);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Pagination onNext={onNext} onPrev={onPrev} prev={prev} next={next} />
+      <div className="flex justify-center w-full">
+        <div className="flex flex-wrap justify-around w-11/12">
+          <Photos datos={datos} />
+        </div>
+      </div>
+      <Pagination onNext={onNext} onPrev={onPrev} prev={prev} next={next} />
+    </>
   );
-}
+};
 
 export default App;
