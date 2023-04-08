@@ -9,7 +9,7 @@ const Pagination = ({ onNext, onPrev, prev, next }) => {
 
   return (
     <>
-      <div className="flex justify-center w-full mt-32 mb-7">
+      <div className="flex justify-center w-full mt-40 mb-7">
         <div className="flex justify-between w-40">
           {prev && (
             <button

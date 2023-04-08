@@ -88,7 +88,14 @@ const App = () => {
               <Photos datos={datos} handleDowload={handleDowload} />
             </div>
           </div>
-          <Pagination onNext={onNext} onPrev={onPrev} prev={prev} next={next} />
+          <div className="mb-10 -mt-36">
+            <Pagination
+              onNext={onNext}
+              onPrev={onPrev}
+              prev={prev}
+              next={next}
+            />
+          </div>
         </>
       )}
       {!isReady && (
