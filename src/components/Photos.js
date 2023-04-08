@@ -11,7 +11,6 @@ const Photos = ({ datos = [], handleDowload }) => {
           </div>
           <p className="pt-1 font-bold text-center">
             Name: {items.photographer}
-            <hr />
           </p>
           <button
             className="px-2 py-2 font-bold text-white transition transform bg-blue-500 rounded-full hover:bg-red-500 hover:-translate-y-3 hover:scale-105"
