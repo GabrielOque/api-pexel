@@ -14,7 +14,7 @@ const Photos = ({ datos = [], handleDowload }) => {
             <hr />
           </p>
           <button
-            className="p-2 mt-2 mb-2 font-bold bg-red-400 rounded-lg hover:bg-blue-700"
+            className="px-2 py-2 font-bold text-white transition transform bg-blue-500 rounded-full hover:bg-red-500 hover:-translate-y-3 hover:scale-105"
             onClick={() => handleDowload(items.src.original)}
           >
             Descargar
