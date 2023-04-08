@@ -37,13 +37,27 @@ const App = () => {
     fetchPictures(initialUrl);
   }, []);
 
+  const handleDowload = (urlImage) => {
+    fetch(urlImage)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const url = window.URL.createObjectURL(new Blob([blob]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "imagen.jpeg");
+        document.body.appendChild(link);
+        link.click();
+        link.parentNode.removeChild(link);
+      });
+  };
+
   return (
     <>
       <Navbar />
       <Pagination onNext={onNext} onPrev={onPrev} prev={prev} next={next} />
       <div className="flex justify-center w-full">
         <div className="flex flex-wrap justify-around w-11/12">
-          <Photos datos={datos} />
+          <Photos datos={datos} handleDowload={handleDowload} />
         </div>
       </div>
       <Pagination onNext={onNext} onPrev={onPrev} prev={prev} next={next} />
